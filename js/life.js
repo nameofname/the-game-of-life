@@ -38,8 +38,17 @@ $(document).ready(function(){
  [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,]]; 
 
 
-  $('td').click(function(){
-    if (!game_started)
+  moused = false; 
+  $(document).on('mousedown', function(){
+    moused = true; 
+  }); 
+
+  $(document).on('mouseup', function(){
+    moused = false; 
+  }); 
+
+  $('table').on('mouseenter', 'td', function(){
+    if (!game_started && moused)
     {
       $(this).toggleClass('on');
     }
@@ -55,17 +64,34 @@ $(document).ready(function(){
   });
 
   $('#btn2').click(function(){
-    change_styles(pulsar); 
+    preload_styles(pulsar); 
   });
 
   $('#btn3').click(function(){
-    change_styles(gun); 
+    preload_styles(gun); 
+  });
+
+  $('#cells_submit').click(function(){
+    new_table(); 
+  }); 
+
+  $('#clear').click(function(){
+    stop_game(); 
+    $('td').removeClass('on'); 
+    game_started = false; 
+  });
+
+  $('#pause').click(function(){
+    stop_game(); 
+    game_started = false; 
   });
 
 //End doc.ready  
 });
 
+var namespaced_time; 
 
+// start the game.  
 function start_game()
 {
   var mx = []; 
@@ -82,16 +108,20 @@ function start_game()
       }
     });
   });
-
   start_int(mx); 
 }
-// this seems to be scanning correctly
+
+// stop (pause) the game
+function stop_game()
+{
+  clearInterval(namespaced_time); 
+}
 
 function start_int(mx)
 {
   var numnum = parseInt($('#speed').val()); 
   var the_mx = mx; 
-  setInterval(function(){
+  namespaced_time = setInterval(function(){
     the_mx = new_mx(the_mx); 
     change_styles(the_mx); 
   }, numnum);
@@ -113,6 +143,86 @@ function change_styles(mx)
       }
     }
   }
+}
+
+// insert preloaded array into table
+function preload_styles(arr) 
+{
+  var w = arr[0].length -1; 
+  var h = arr.length -1; 
+  console.log(w); 
+  var tw = $('table tr#0 td').length; 
+  console.log(tw); 
+  var new_arr = []; 
+  // first calculate the width of the table relative to the wdth of the array, 
+  // then the width of one side (minus 1 if the diff is odd)
+  if (tw >= w && tw >= h)
+  {
+    load_up(); 
+  }
+  else
+  {
+    alert('the table size you have chosen is a bit too small for this pattern'); 
+  }
+  function load_up()
+  {
+    var diffX = tw - w; 
+    var diffY = tw - h; 
+    var side; 
+    var top_side; 
+    if (diffX % 2 != 0)
+    {
+      diffX -= 1; 
+    }
+    if (diffY % 2 != 0)
+    {
+      diffY -= 1; 
+    }
+    side = diffX / 2; 
+    top_side = diffY / 2; 
+    console.log('side: ' + side); 
+    console.log(top_side); 
+    calc = top_side + w; 
+    console.log('a calc: ' +  calc); 
+    // then add the top and sides, and add the contents of the array in the middle
+    var incrY = 0; 
+    for (var y=0; y<tw; y++)
+    {
+      new_arr[y] = []; 
+      console.log('this is y: ' + y);
+      if (top_side < y && y < (top_side + w))
+      {
+        incrY ++; 
+      }
+      var incrX = 0; 
+      for (x=0; x<tw; x++)
+      {
+        // if you are in the top or bottom margins...
+        if (y < top_side && y > (top_side + w))
+        {
+          new_arr[y][x] = false; 
+        }
+        //else if (top_side < y > (top_side + w))
+        // else you are in the middle on the y axis
+        else 
+        {
+          // if you are in the x- margin
+          if (side < x && x < (side + w))
+          {
+            new_arr[y][x] = arr[incrY][incrX]; 
+            incrX ++; 
+          }
+          else 
+          {
+            //console.log('icrY: ' + incrY); 
+            new_arr[y][x] = false; 
+          }
+        }
+      }
+    }
+  }
+  console.log(new_arr); 
+  change_styles(new_arr); 
 }
 
 // create a function to take the previous matrix and bases on the rules of the game, come up with the next matrix
@@ -199,4 +309,64 @@ function get_neighbors(mx, _x, _y)
   return n; 
 }
 
+// create a table the number of cells specified.  
+function new_table()
+{
+  $('table').empty(); 
+  var y = parseInt($('input#cell_num').val()); 
+  //var table = $('<table>');
+  for (i=0; i<y; i++)
+  {
+    var new_tr = $('<tr>').attr({'class' : 'y' , 'id' : i}); 
+    for (x=0; x<y; x++)
+    {
+      new_tr.append($('<td>').attr('class',x)); 
+    }
+    $('table').append(new_tr); 
+  }
+}
 
+
+
+/*
+
+this is what needs to be done: 
+
+make a function that generates a couple table sizes.  or you can enter the number of cells... ? 
+
+i want it to have cool ass shit. 
+
+there should be a button to clear
+you should be able to depress cells just by mouse down and moving over the cells. 
+
+all the options will be on the right. 
+i want it to be a good place for people who want to use the game to develop cool patterns to play.  in order to do that 
+
+and i think thigs should be organized into a control panel.  here are the cats: 
+
+1) choose from known patterns
+  - for this i need to have the patterns, and be able to wrap them in the middle of larger matricies the size of the table chosen
+
+2) choose the speed - you can already do this
+
+3) clear, stop, start.  
+
+4) choose the number of cells
+
+5) i think there may be an opportunity for a cpu like drop down here.  yes, a tool bar.  choose from patterns, and configs.  the stop, start, clear will be buttons along the bottom.  Ok, break.  For the configs, I think a fly out menu would be best.  Awesome.  
+
+6) the user should be able to download a copy of their original design and load it up later. ho lee fuk. yes. 
+
+7) lastly i think that the game should not wrap, or give the user the OPTION to wrap.  FUCK YES- this goes in the configs.  
+
+-------------------
+- need to limit the number of rows to like 100, maybe 200 and i can have the script detect the nubmer of rows and size down the table if appropriate
+- need to add more patterns
+- need to organize the whole thing into a drop down
+- need to make it so that cells can be selected on any mouse down. 
+
+FOR THE UI, I GOT IT: 
+the control panel will be a menu bar up top, but it will hover out of sight so that you can just come up to the top and either click a transparent thingy and it will drop down, or it becumes avaialable when you hover close to there. I think i should do both so that users can full screen it and just push the mouse to the top, or if they are not in full screen, they can click the drop down tab. 
+
+
+*/

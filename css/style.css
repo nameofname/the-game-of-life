@@ -7,16 +7,18 @@
 }
 
 table {
+  display: table-row; 
   border: 1px solid #CCCCCC; 
   background-color: #f3f3f3; 
+  width: 80%; 
 }
 
 td {
+  display: inline-block; 
   height: 10px; 
   width: 10px; 
   border: 1px solid #CCCCCC; 
   background-color: #ffffff; 
-  padding: 10px; 
 }
 
 div.btn {
@@ -33,3 +35,8 @@ td.on {
   background: url(../images/Argentina.gif) no-repeat 50% 50% transparent; 
 }
 
+#cells_submit {
+  background-color: red; 
+  padding: 10px; 
+  margin-bottom: 20px; 
+}
