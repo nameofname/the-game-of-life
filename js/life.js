@@ -332,18 +332,6 @@ function new_table()
 
 this is what needs to be done: 
 
-make a function that generates a couple table sizes.  or you can enter the number of cells... ? 
-
-i want it to have cool ass shit. 
-
-there should be a button to clear
-you should be able to depress cells just by mouse down and moving over the cells. 
-
-all the options will be on the right. 
-i want it to be a good place for people who want to use the game to develop cool patterns to play.  in order to do that 
-
-and i think thigs should be organized into a control panel.  here are the cats: 
-
 1) choose from known patterns
   - for this i need to have the patterns, and be able to wrap them in the middle of larger matricies the size of the table chosen
 
@@ -367,6 +355,27 @@ and i think thigs should be organized into a control panel.  here are the cats:
 
 FOR THE UI, I GOT IT: 
 the control panel will be a menu bar up top, but it will hover out of sight so that you can just come up to the top and either click a transparent thingy and it will drop down, or it becumes avaialable when you hover close to there. I think i should do both so that users can full screen it and just push the mouse to the top, or if they are not in full screen, they can click the drop down tab. 
+
+time to do the working on the ol' UI.  
+
+I will mons indeedly have john conway's the game of life in the logo sppt, and 3 drop downs. 
+
+1- configure
+2- patterns
+3- import/export.  The user should be able to make a pattern, and save it.  Then download if wanted.  Later they should be able to upload it, and shit. 
+
+Then there will be a control panel down at the bottom.  Start, Pause, Clear. 
+The control buttons should have little hover tooltips. 
+
+These will be the configs: 
+- wrap
+- number of cells (size)
+- speed
+
+
+'
+
+
 
 
 */
