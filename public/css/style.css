@@ -12,32 +12,22 @@ ul, li, p, h1, h2, input, label {
 }
 
 table {
-  display: table-row; 
   border: 1px solid #CCCCCC; 
   background-color: #f3f3f3; 
-  width: 80%; 
+  margin-top: 50px; 
+  margin-left: 20px; 
 }
 
 td {
-  display: inline-block; 
   height: 10px; 
   width: 10px; 
   border: 1px solid #CCCCCC; 
   background-color: #ffffff; 
 }
 
-div.btn {
-  width: 100px; 
-  padding: 20px; 
-  border: 1px solid #CCCCCC; 
-  background-color: #f3f3f3; 
-  margin-top: 20px; 
-  text-align: center; 
-  cursor: pointer; 
-}
-
 td.on {
   background-color: #ABABAB; 
+  background-color: #6992C2; 
 }
 
 #cells_submit {
@@ -54,6 +44,7 @@ td.on {
 	margin-left: 20px; 
 	margin-right: 20px; 
 	margin-top: 3px; 
+  width: 205px; 
 }
 
 #nav_bg {
@@ -108,6 +99,7 @@ td.on {
 	display: block; 
 	height: 40px; 
 	padding-top: 7px; 
+	cursor: pointer;
 }
 
 #nav ul.menu_inner {
@@ -127,6 +119,7 @@ td.on {
 
 #nav ul.menu_inner li {
 	padding: 5px 15px; 
+  height: 17px; 
 }
 
 #nav ul.menu_inner li:hover {
@@ -135,6 +128,52 @@ td.on {
 
 #nav ul.menu:hover ul.menu_inner {
 	display: block; 
+}
+
+#nav ul.menu_inner li div.btn {
+	float: right; 
+}
+
+.toolbar {
+  float: right; 
+  width: 300px;   
+  margin-top: 5px;
+}
+
+.btn {
+  background-color: #CCC; 
+  padding: 2px 10px;
+  -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
+  cursor: pointer;
+}
+
+.toolbar li.btn {
+  display: block; 
+  float: left; 
+  margin-right: 15px;
+  padding-left: 19px; 
+  background-position: 3px 50%; 
+  background-repeat: no-repeat; 
+}
+
+.wrap_on {
+  background: url(../images/check.png) no-repeat 90% 50% transparent; 
+}
+
+.toolbar li:hover {
+  background-color: #6992C2; 
+}
+
+#start {
+  background-image: url(../images/play.png); 
+}
+
+#clear {
+  background-image: url(../images/clear.png); 
+}
+
+#pause {
+  background-image: url(../images/pause.png); 
 }
 
 

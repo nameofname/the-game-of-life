@@ -28,5 +28,3 @@ Then there will be a table for saved designs.
 - the array
 - the dimensions of the array
 
-
-

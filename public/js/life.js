@@ -54,7 +54,8 @@ $(document).ready(function(){
     }
   });
 
-  $('#btn1').click(function(){
+  // Controls: start, pause, clear, follow: 
+  $('#start').click(function(){
     $(this).attr('disabled',true);
     if (!game_started)
     {
@@ -62,18 +63,6 @@ $(document).ready(function(){
     }
     game_started = true; 
   });
-
-  $('#btn2').click(function(){
-    preload_styles(pulsar); 
-  });
-
-  $('#btn3').click(function(){
-    preload_styles(gun); 
-  });
-
-  $('#cells_submit').click(function(){
-    new_table(); 
-  }); 
 
   $('#clear').click(function(){
     stop_game(); 
@@ -85,6 +74,15 @@ $(document).ready(function(){
     stop_game(); 
     game_started = false; 
   });
+
+  // Pre-loaded styles on click event 
+  $('#pulsar').click(function(){preload_styles(pulsar); });
+  $('#gun').click(function(){preload_styles(gun); });
+
+  // Change the number of cells. 
+  $('.size_change').click(function(){
+    new_table(); 
+  }); 
 
 //End doc.ready  
 });

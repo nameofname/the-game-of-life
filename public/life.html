@@ -25,32 +25,30 @@
       </li>
   </ul>
 	<ul class="menu">
-    	<li class="menu_li">Configure
+    	<li class="menu_li">Patterns
         	<ul class="menu_inner">
-            	<li class="sub_li">Table Wraps</li>
-            	<li class="sub_li">Don'g Wrap</li>
-            	<li class="sub_li">Size</li>
-            	<li class="sub_li">Speed</li>
+              <li id="pulsar">Load the Pulsar</li>
+              <li id="gun">Load the Gun</li>
           </ul>
       </li>
   </ul>
 	<ul class="menu">
-    	<li class="menu_li">Patterns
+    	<li class="menu_li">Configure
         	<ul class="menu_inner">
-            	<li class="sub_li">Pulsar</li>
-            	<li class="sub_li">Gun</li>
+            	<li class="sub_li wrap wrap_on">Wrap Table</li>
+            	<li class="sub_li wrap">Don't Wrap</li>
+            	<li class="sub_li">Size (cells)</li>
+            	<li class="sub_li"><input id="cell_num" type="text" value="20" /></li>
+            	<li class="sub_li"><div class="btn size_change">Change Size</div></li>
+            	<li class="sub_li">Speed (in milliseconds)</li>
+            	<li class="sub_li"><input id="speed" type="text" value="600" /></li>
           </ul>
       </li>
   </ul>
-  <ul class>
-  <div id="btn1" class="btn">Start the Game</div>
-  <div id="btn2" class="btn">Load the Pulsar</div>
-  <div id="btn3" class="btn">Load the Gun</div>
-  <div id="clear" class="btn">Clear</div>
-  <div id="pause" class="btn">Pause</div>
-  <h1>Choose your speed</h1>
-  <input id="speed" type="text" value="600" />
-  <input id="cell_num" type="text" value="100" /><div id="cells_submit">sub</div>
+  <ul class="toolbar">
+    <li id="start" class="btn">Start</li>
+    <li id="clear" class="btn">Clear</li>
+    <li id="pause" class="btn">Pause</li>
   </div>
   </ul>
 <table>
@@ -495,7 +493,6 @@
     <td class="19"></td>
   </tr>
 </table>
-
 </div>
 </body>
 </html>
