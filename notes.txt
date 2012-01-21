@@ -1,0 +1,32 @@
+so the speed the functions in my current implementation is really slow.  
+I am looking for a way to speed this up.  
+
+The speed right now is determined as at least n X n - or x X y in this case, because you iterate through y, and y[x].  
+On top of that there is a loop to figure out the neighbors, which is another 9 iterations per cell.  
+
+Because of the way that hash maps work, a lookup for a hash map is performed in constant time.  
+So you would still have to iterate through every cell, which would be as many iterations as x X y.  
+The way to save time is to cut down on time is to remove the iterations through the neighbor cells and instead build a hash map with references to the neighbors of each cell, their state, the previous state of the cell itself, and the resultant next state. 
+
+Wow, it is totally just the rendering that is taking so long. Nevermind refactoring the math, it would probably be a good idea to look into svg for this project.  
+Just did a check to confirm with 100 rows, it really is the rendering.  
+
+TODO: 
+- Add a function that allows user to select a straight row if they have the shift key depressed. 
+
+SSSSSSSSSSSSSQQQQQQQQQQQQQQLLLLLLLLLLLLL::::::::::
+Ok, so you're finally sqling.  A couple of things need to happen, first a schema, second, write files to cpu.  Word up.  Let's rock. 
+USER: 
+- email
+- pw
+- id (auto increment int)
+
+
+Then there will be a table for saved designs.  
+- uid
+- date created
+- the array
+- the dimensions of the array
+
+
+

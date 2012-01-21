@@ -1,0 +1,501 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/jquery.js" /></script>
+<script type="text/javascript" src="js/life.js" /></script>
+</head>
+<body>
+<div id="wrapper">
+<div id="toolbar_bg">
+	<div id="toolbar_l">
+    </div>
+	<div id="toolbar_m">
+    </div>
+	<div id="toolbar_r">
+    </div>
+</div>
+<div id="nav">
+	<div id="logo"><img src="images/logo.png" alt="Conway's Game of Life" /></div>
+	<ul class="menu">
+    	<li class="menu_li">File
+        	<ul class="menu_inner">
+            	<li class="sub_li">Save</li>
+            	<li class="sub_li">Load file</li>
+          </ul>
+      </li>
+  </ul>
+	<ul class="menu">
+    	<li class="menu_li">Configure
+        	<ul class="menu_inner">
+            	<li class="sub_li">Table Wraps</li>
+            	<li class="sub_li">Don'g Wrap</li>
+            	<li class="sub_li">Size</li>
+            	<li class="sub_li">Speed</li>
+          </ul>
+      </li>
+  </ul>
+	<ul class="menu">
+    	<li class="menu_li">Patterns
+        	<ul class="menu_inner">
+            	<li class="sub_li">Pulsar</li>
+            	<li class="sub_li">Gun</li>
+          </ul>
+      </li>
+  </ul>
+  <ul class>
+  <div id="btn1" class="btn">Start the Game</div>
+  <div id="btn2" class="btn">Load the Pulsar</div>
+  <div id="btn3" class="btn">Load the Gun</div>
+  <div id="clear" class="btn">Clear</div>
+  <div id="pause" class="btn">Pause</div>
+  <h1>Choose your speed</h1>
+  <input id="speed" type="text" value="600" />
+  <input id="cell_num" type="text" value="100" /><div id="cells_submit">sub</div>
+  </div>
+  </ul>
+<table>
+  <tr class="y" id="0">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="1">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="2">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="3">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="4">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="5">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="6">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="7">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="8">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="9">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="10">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="11">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="12">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="13">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="14">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="15">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="16">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="17">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="18">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+  <tr class="y" id="19">
+    <td class="0"></td>
+    <td class="1"></td>
+    <td class="2"></td>
+    <td class="3"></td>
+    <td class="4"></td>
+    <td class="5"></td>
+    <td class="6"></td>
+    <td class="7"></td>
+    <td class="8"></td>
+    <td class="9"></td>
+    <td class="10"></td>
+    <td class="11"></td>
+    <td class="12"></td>
+    <td class="13"></td>
+    <td class="14"></td>
+    <td class="15"></td>
+    <td class="16"></td>
+    <td class="17"></td>
+    <td class="18"></td>
+    <td class="19"></td>
+  </tr>
+</table>
+
+</div>
+</body>
+</html>

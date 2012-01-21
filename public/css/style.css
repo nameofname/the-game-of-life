@@ -1,0 +1,142 @@
+* {
+  margin: 0px; 
+  padding: 0px; 
+  font-size: 12px; 
+}
+
+ul, li, p, h1, h2, input, label {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	color: #434343; 
+	text-shadow: 1px 1px 1px #ffffff;
+	filter: dropshadow(color=#ffffff, offx=1, offy=1); 
+}
+
+table {
+  display: table-row; 
+  border: 1px solid #CCCCCC; 
+  background-color: #f3f3f3; 
+  width: 80%; 
+}
+
+td {
+  display: inline-block; 
+  height: 10px; 
+  width: 10px; 
+  border: 1px solid #CCCCCC; 
+  background-color: #ffffff; 
+}
+
+div.btn {
+  width: 100px; 
+  padding: 20px; 
+  border: 1px solid #CCCCCC; 
+  background-color: #f3f3f3; 
+  margin-top: 20px; 
+  text-align: center; 
+  cursor: pointer; 
+}
+
+td.on {
+  background-color: #ABABAB; 
+}
+
+#cells_submit {
+  background-color: red; 
+  padding: 10px; 
+  margin-bottom: 20px; 
+}
+
+
+/*======================================== Toolbars and nav and everything ========================================*/
+/*=================================================================================================================*/
+#logo {
+	float: left; 
+	margin-left: 20px; 
+	margin-right: 20px; 
+	margin-top: 3px; 
+}
+
+#nav_bg {
+	width: 100%; 
+	height: 40px; 
+	position: absolute; 
+	top: 0px; 
+	z-index: 0; 
+}
+
+#nav_l {
+	width: 15px; 
+	height: 40px;
+	background-image: url(../images/nav_l.png); 
+	position: absolute; 
+	left: 0px;
+	top: 0px; 
+}
+
+#nav_m {
+	height: 40px;
+	background-image: url(../images/nav_m.png); 
+	position: absolute; 
+	top: 0px; 
+	left: 15px; 
+	right: 12px; 
+}
+
+#nav_r {
+	width: 12px; 
+	height: 40px;
+	background-image: url(../images/nav_r.png); 
+	position: absolute; 
+	right: 0px;
+	top: 0px; 
+}
+
+#nav {
+	width: 100%; 
+	height: 40px; 
+	position:absolute; 
+	top:0px; 
+}
+
+#nav ul.menu {
+	float: left; 
+	padding: 0px 15px; 
+	list-style: none; 
+}
+
+#nav ul .menu_li {
+	display: block; 
+	height: 40px; 
+	padding-top: 7px; 
+}
+
+#nav ul.menu_inner {
+	position: absolute; 
+	top: 29px; 
+	list-style: none; 
+	display: none; 
+	background-color: #FFFFFF; 
+	border-left: 1px solid #E7E7E7; 
+	border-right: 1px solid #E7E7E7; 
+	border-bottom: 1px solid #E7E7E7; 
+	border-top: 1px solid #FFFFFF; 
+	-webkit-box-shadow: 0px 3px 3px 0px , 0.25);
+	-moz-box-shadow: 0px 3px 3px 0px , 0.25);
+	box-shadow: 0px 3px 3px 0px , 0.25); 
+}
+
+#nav ul.menu_inner li {
+	padding: 5px 15px; 
+}
+
+#nav ul.menu_inner li:hover {
+	background-color: #e7e7e7; 
+}
+
+#nav ul.menu:hover ul.menu_inner {
+	display: block; 
+}
+
+
+
+
