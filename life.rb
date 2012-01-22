@@ -18,10 +18,10 @@ get '/' do
   #":views is this: " + settings.root
 end
 
-post '/ajax/user' do
-  mail = params[:mail]
-  'This is your mail: ' + mail
-  client.query("insert into users (data) values('#{mail}');"); 
+post '/new_user' do
+  email = params[:email]
+  pass = params[:pass]
+  client.query("insert into users (id, email, pass) values('', '#{email}', '#{pass}');"); 
   #return result; 
   #"This is yon mail #{params[:mail]}"
   #"This is yon pw #{params[:pw]}"

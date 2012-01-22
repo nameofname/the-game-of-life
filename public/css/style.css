@@ -189,26 +189,20 @@ td.on {
 
 .dialogue {
   display: none; 
+  position: absolute; 
+  width: 350px; 
+  height: 250px; 
+  left: 50%; 
+  top: 50px; ; 
+  margin-left: -175px; 
 }
 
 #dialogue {
-  position: absolute; 
-  width: 300px; 
-  height: 150px; 
-  left: 50%; 
-  top: 50px; ; 
-  margin-left: -150px; 
   z-index: 10; 
   overflow: hidden; 
 }
 
 #dialogue_bg {
-  position: absolute; 
-  width: 300px; 
-  height: 150px; 
-  left: 50%; 
-  top: 50px; ; 
-  margin-left: -150px; 
   z-index: 0; 
   background-color: #263F5C; 
   opacity: 0.2; 
@@ -219,11 +213,11 @@ td.on {
 }
 
 .dialogue_inner {
-  width: 250px; 
-  height: 100px; 
+  width: 300px; 
+  height: 200px; 
   padding: 25px 25px; 
   position: absolute; 
-  top: -150px; 
+  top: -200px; 
 }
 
 /* All of the dialogue boxes
@@ -238,12 +232,27 @@ td.on {
   overflow: scroll; 
 }
 
+.dialogue p, 
 .dialogue_message {
   color: #B50000; 
   margin-bottom: 10px; 
 }
 
+.dialogue_close {
+  width: 15px; 
+  height: 15px; 
+  position: absolute; 
+  top: 5px; 
+  right: 5px; 
+  background: url(../images/x.png) no-repeat transparent; 
+  cursor: pointer; 
+  z-index: 20; 
+}
 
+.dialogue input {
+  width: 100%; 
+  margin-bottom: 10px; 
+}
 
 
 

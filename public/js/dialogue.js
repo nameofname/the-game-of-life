@@ -26,18 +26,36 @@ $(document).ready(function(){
     dialogue('new_user', ''); 
   });
 
+  $('.dialogue .dialogue_close').on('click', function(){
+    hide_dialogue(); 
+  });
+
+  // use ajaxform plugin to submit all forms via ajax. 
+  $('#form_new_user, #form_login, #form_save_pattern').ajaxForm(); 
+
+  $('#form_new_user').on('submit', function(e){
+    //$(this).ajaxSubmit(); 
+    e.preventDefault(); 
+    var queryString = $(this).formSerialize(); 
+    $.post('/new_user', queryString); 
+  }); 
+  //$('#form_login').ajaxForm(); 
+  //$('#form_save_pattern').ajaxForm(); 
+
+// END DOCUMENT.READY
 });
 
 
 function dialogue(arg, message) {
+  var dialogue_top = -250; 
   $('#dialogue_bg').show(); 
   $('#dialogue').show(); 
   $('#dialogue .dialogue_message').text(message); 
   // hide all of the dialogue inner boxes
-  $('#dialogue_save_pattern').css({'top':'-150px'}); 
-  $('#dialogue_login').css({'top':'-150px'}); 
-  $('#dialogue_new_user').css({'top':'-150px'}); 
-  $('#dialogue_my_patterns').css({'top':'-150px'}); 
+  $('#dialogue_save_pattern').css({'top': dialogue_top}); 
+  $('#dialogue_login').css({'top': dialogue_top}); 
+  $('#dialogue_new_user').css({'top': dialogue_top}); 
+  $('#dialogue_my_patterns').css({'top': dialogue_top}); 
   if (arg == 'save') {
     $('#dialogue_save_pattern').css({'top':'0px'}); 
   } else if (arg == 'new_user') {

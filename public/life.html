@@ -2,6 +2,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <script type="text/javascript" src="js/jquery.js" /></script>
+<script type="text/javascript" src="js/jquery.form.js" /></script>
 <script type="text/javascript" src="js/life.js" /></script>
 <script type="text/javascript" src="js/dialogue.js" /></script>
 </head>
@@ -18,19 +19,25 @@
 <div class="dialogue" id="dialogue_bg">
 </div>
 <div class="dialogue" id="dialogue">
+  <div class="dialogue_close">
+  </div>
   <div class="dialogue_inner" id="dialogue_login">
     <p class="dialogue_message"></p>
-    <form id="form_login" action="/login">
+    <p>LOG IN: </p>
+    <form method="POST" id="form_login" action="/login">
       <input type="text" name="email" value="email address" />
-      <input type="text" name="pw" value="password" />
+      <input type="password" name="pw" value="password" />
+      <input type="submit" name="submit" value="submit" />
     </form>
   </div>
-  <div class="dialogue_inner" id="dialogue_new_user">
+  <div method="POST" class="dialogue_inner" id="dialogue_new_user">
     <p class="dialogue_message"></p>
+    <p>NEW USER: </p>
     <form id="form_new_user" action="/new_user">
       <input type="text" name="email" value="email address" />
-      <input type="text" name="pw" value="password" />
-      <input type="text" name="pw" value="confirm password" />
+      <input type="password" name="pass" value="password" />
+      <!--<input type="password" name="confirm_pw" value="confirm password" />!-->
+      <input type="submit" value="submit" />
     </form>
   </div>
   <div class="dialogue_inner" id="dialogue_my_patterns">
@@ -38,8 +45,8 @@
     </table>
   </div>
   <div class="dialogue_inner" id="dialogue_save_pattern">
-    <form id="form_new_user" action="/new_user">
-      <input type="text" name="pw" value="name your pattern" />
+    <form method="POST" id="form_save_pattern" action="/save_pattern">
+      <input type="text" name="pass" value="name your pattern" />
       <input type="submit" name="submit" value="submit" />
     </form>
   </div>
