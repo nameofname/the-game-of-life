@@ -49,10 +49,16 @@ td.on {
 
 #nav_bg {
 	width: 100%; 
-	height: 40px; 
+	height: 30px; 
 	position: absolute; 
 	top: 0px; 
 	z-index: 0; 
+  background-color: #263F5C; 
+  opacity: 0.2; 
+  filter:alpha(opacity=20); 
+  -webkit-box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.3);
 }
 
 #nav_l {
@@ -141,7 +147,7 @@ td.on {
 }
 
 .btn {
-  background-color: #CCC; 
+  background-color: #f4f4f4; 
   padding: 2px 10px;
   -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
   cursor: pointer;
@@ -175,6 +181,69 @@ td.on {
 #pause {
   background-image: url(../images/pause.png); 
 }
+
+
+/*=================================================== Dialogue Box ================================================*/
+/*=================================================================================================================*/
+
+
+.dialogue {
+  display: none; 
+}
+
+#dialogue {
+  position: absolute; 
+  width: 300px; 
+  height: 150px; 
+  left: 50%; 
+  top: 50px; ; 
+  margin-left: -150px; 
+  z-index: 10; 
+  overflow: hidden; 
+}
+
+#dialogue_bg {
+  position: absolute; 
+  width: 300px; 
+  height: 150px; 
+  left: 50%; 
+  top: 50px; ; 
+  margin-left: -150px; 
+  z-index: 0; 
+  background-color: #263F5C; 
+  opacity: 0.2; 
+  filter:alpha(opacity=20); 
+  -webkit-box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+.dialogue_inner {
+  width: 250px; 
+  height: 100px; 
+  padding: 25px 25px; 
+  position: absolute; 
+  top: -150px; 
+}
+
+/* All of the dialogue boxes
+#dialogue_login, 
+#dialogue_new_user, 
+#dialogue_my_patterns,
+#dialogue_save_pattern {
+}*/
+
+
+#dialogue_my_patterns {
+  overflow: scroll; 
+}
+
+.dialogue_message {
+  color: #B50000; 
+  margin-bottom: 10px; 
+}
+
+
 
 
 

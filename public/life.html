@@ -3,32 +3,63 @@
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <script type="text/javascript" src="js/jquery.js" /></script>
 <script type="text/javascript" src="js/life.js" /></script>
+<script type="text/javascript" src="js/dialogue.js" /></script>
 </head>
 <body>
 <div id="wrapper">
 <div id="nav_bg">
-	<div id="nav_l">
+<!--	<div id="nav_l">
     </div>
 	<div id="nav_m">
     </div>
 	<div id="nav_r">
-    </div>
+    </div>!-->
+</div>
+<div class="dialogue" id="dialogue_bg">
+</div>
+<div class="dialogue" id="dialogue">
+  <div class="dialogue_inner" id="dialogue_login">
+    <p class="dialogue_message"></p>
+    <form id="form_login" action="/login">
+      <input type="text" name="email" value="email address" />
+      <input type="text" name="pw" value="password" />
+    </form>
+  </div>
+  <div class="dialogue_inner" id="dialogue_new_user">
+    <p class="dialogue_message"></p>
+    <form id="form_new_user" action="/new_user">
+      <input type="text" name="email" value="email address" />
+      <input type="text" name="pw" value="password" />
+      <input type="text" name="pw" value="confirm password" />
+    </form>
+  </div>
+  <div class="dialogue_inner" id="dialogue_my_patterns">
+    <table>
+    </table>
+  </div>
+  <div class="dialogue_inner" id="dialogue_save_pattern">
+    <form id="form_new_user" action="/new_user">
+      <input type="text" name="pw" value="name your pattern" />
+      <input type="submit" name="submit" value="submit" />
+    </form>
+  </div>
 </div>
 <div id="nav">
-	<div id="logo"><img src="images/logo.png" alt="Conway's Game of Life" /></div>
+  <div id="logo"><img src="images/logo.png" alt="Conway's Game of Life" /></div>
 	<ul class="menu">
     	<li class="menu_li">File
         	<ul class="menu_inner">
-            	<li class="sub_li">Save</li>
-            	<li class="sub_li">Load file</li>
+            	<li id="save_link" class="sub_li">Save Pattern</li>
+            	<li id="patterns_link" class="sub_li">My Patterns</li>
+            	<li id="new_user_link" class="sub_li">New User?</li>
           </ul>
       </li>
   </ul>
 	<ul class="menu">
     	<li class="menu_li">Patterns
         	<ul class="menu_inner">
-              <li id="pulsar">Load the Pulsar</li>
-              <li id="gun">Load the Gun</li>
+              <li id="sub_li pulsar">Load the Pulsar</li>
+              <li id="sub_li gun">Load the Gun</li>
           </ul>
       </li>
   </ul>

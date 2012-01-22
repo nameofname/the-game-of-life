@@ -27,4 +27,43 @@ Then there will be a table for saved designs.
 - date created
 - the array
 - the dimensions of the array
+- the name of your design. 
+
+With the name users should be able to see a list of all the designs they have saved in the past.   There should be a limit? On the number.  Thhey should be able to delete one if desired.  
+
+So in that spirit, here are the things I need to do: 
+- create a concept of a user with a pw
+- Create area for user to log in. OR when a user goes to save a design, I should ask them to log in. 
+- Users should be able to call up a list of all past designs. Here are the options: 
+  - My designs. 
+  - Save design.  
+Clicking my designs should pop up a dialogue box. 
+
+
+I will need a couple services to handle all of this. 
+1- Create user (no delete for user) 
+2- Save pattern
+3- Delete pattern. 
+
+
+Here is a brief outline for the pattern dialogue: 
+- tabular
+- name
+- date created
+- load option
+- delete option.  
+- confirm box for delete.  
+
+- The login box will be the same as the pattern dialogue.  
+- When you go to save a pattern, it asks for your username and pw if you are not already logged in.  Once you enter it, it saves the design for you, but asks for you to enter the design's name first.   
+- If you are already logged in, it pops up the dialogue which asks for a name for the design. 
+- There should be a concept of a logged in user, connected to a browser session.  I'm sure I can figure that one out. 
+- If you are logged in and you click "My patterns" it pulls up the pattern dialogue, but it skips your log in.  
+- If you are not logged in, you have to enter your email and pw.  
+
+The one question I have not tackled is how to persist the concept of a logged in user. WTF. I could use a session cookie...  I think that it would be best to just do this in the js. Screw the ruby session cookie.  Still, that opens me up to the danger of sql injection. OK, so apparently it is not that hard to create cookies in ruby.  You just have to require cgi. I will do.  And the authentication of users should happen all on the server.    
+
+
+
+
 
