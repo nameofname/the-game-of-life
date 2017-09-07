@@ -119,7 +119,7 @@ function change_styles(mx) {
 function preload_styles(arr) {
     var w = arr[0].length -1;
     var h = arr.length -1;
-    var tw = $('table tr#0 td').length;
+    var tw = $('table#GameTable tr.row-0 td').length;
     var new_arr = [];
 
     function load_up() {
@@ -217,8 +217,7 @@ function new_mx(mx) {
 }
 
 // gets neighbors from matrix
-function get_neighbors(mx, _x, _y)
-{
+function get_neighbors(mx, _x, _y) {
     var x = parseInt(_x);
     var y = parseInt(_y);
     var n = 0;
