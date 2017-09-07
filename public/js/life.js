@@ -31,6 +31,12 @@ $(document).ready(function() {
         }
     });
 
+    $('table#GameTable').on('click', 'td', function() {
+        if (!game_started) {
+            $(this).toggleClass('on');
+        }
+    });
+
     // Controls: start, pause, clear, follow:
     $('#start').click(function() {
         $(this).attr('disabled', true);
