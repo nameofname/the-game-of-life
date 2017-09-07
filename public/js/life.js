@@ -10,44 +10,21 @@
  Each cell with three neighbors becomes populated.
  */
 
-$(document).ready(function(){
+// create a function that lets the user click the squares to generate the first matrix. Collect the matrix from the table and feed it to new_mx, then feed that result to change_styles
+var game_started = false;
+var moused = false;
 
+$(document).ready(function() {
 
-    // create a function that lets the user click the squares to generate the first matrix. Collect the matrix from the table and feed it to new_mx, then feed that result to change_styles
-    var game_started = false;
-    var pulsar = [[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,], [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,], [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,], [false,false,false,false,false,true,true,true,false,false, false, true, true, true, false, false, false, false, false, false,], [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,], [false,false,false,true,false,false,false,false,true,false, true, false, false, false, false, true, false, false, false, false,], [false,false,false,true,false,false,false,false,true,false, true, false, false, false, false, true, false, false, false, false,], [false,false,false,true,false,false,false,false,true,false, true, false, false, false, false, true, false, false, false, false,], [false,false,false,false,false,true,true,true,false,false, false, true, true, true, false, false, false, false, false, false,], [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,], [false,false,false,false,false,true,true,true,false,false, false, true, true, true, false, false, false, false, false, false,], [false,false,false,true,false,false,false,false,true,false, true, false, false, false, false, true, false, false, false, false,], [false,false,false,true,false,false,false,false,true,false, true, false, false, false, false, true, false, false, false, false,], [false,false,false,true,false,false,false,false,true,false, true, false, false, false, false, true, false, false, false, false,], [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,], [false,false,false,false,false,true,true,true,false,false, false, true, true, true, false, false, false, false, false, false,], [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,], [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,], [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,]]
-
-    var gun = [[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,],
-        [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,false,false,true,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,true,false,true,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,true,true,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,true,true,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,true,true,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,true,false,true,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,false,false,true,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,],
-        [false,false,false,false,false,false,false,false,false,false, false, false, false, false, false, false, false, false, false, false,]];
-
-
-    var moused = false;
-    $(document).on('mousedown', function(){
+    $(document).on('mousedown', function() {
         moused = true;
     });
 
-    $(document).on('mouseup', function(){
+    $(document).on('mouseup', function() {
         moused = false;
     });
 
-    $('table').on('mouseenter', 'td', function(){
+    $('table').on('mouseenter', 'td', function() {
         if (!game_started && moused)
         {
             $(this).toggleClass('on');
@@ -55,7 +32,7 @@ $(document).ready(function(){
     });
 
     // Controls: start, pause, clear, follow:
-    $('#start').click(function(){
+    $('#start').click(function() {
         $(this).attr('disabled',true);
         if (!game_started)
         {
@@ -64,27 +41,26 @@ $(document).ready(function(){
         game_started = true;
     });
 
-    $('#clear').click(function(){
+    $('#clear').click(function() {
         stop_game();
         $('td').removeClass('on');
         game_started = false;
     });
 
-    $('#pause').click(function(){
+    $('#pause').click(function() {
         stop_game();
         game_started = false;
     });
 
     // Pre-loaded styles on click event
-    $('#pulsar').click(function(){ preload_styles(pulsar); });
-    $('#gun').click(function(){ preload_styles(gun); });
+    $('#pulsar').click(function() { preload_styles(pulsar); });
+    $('#gun').click(function() { preload_styles(gun); });
 
     // Change the number of cells.
-    $('.size_change').click(function(){
+    $('.size_change').click(function() {
         new_table();
     });
 
-//End doc.ready
 });
 
 var namespaced_time;
@@ -92,15 +68,14 @@ var namespaced_time;
 // start the game.
 function start_game() {
     var mx = [];
+
     $('tr').each(function(y){
         mx.push([]);
-        $(this).find('td').each(function(x){
-            if ($(this).hasClass('on'))
-            {
+
+        $(this).find('td').each(function() {
+            if ($(this).hasClass('on')) {
                 mx[y].push(true);
-            }
-            else
-            {
+            } else {
                 mx[y].push(false);
             }
         });
@@ -114,11 +89,10 @@ function stop_game() {
 }
 
 // start the interval based on user input- time.
-function start_int(mx)
-{
+function start_int(mx) {
     var numnum = parseInt($('#speed').val());
     var the_mx = mx;
-    namespaced_time = setInterval(function(){
+    namespaced_time = setInterval(function() {
         the_mx = new_mx(the_mx);
         change_styles(the_mx);
     }, numnum);
@@ -127,8 +101,7 @@ function start_int(mx)
 
 
 // create a function to take a matrix and assign styles to the table
-function change_styles(mx)
-{
+function change_styles(mx) {
     $('td').removeClass('on');
     for (y in mx)
     {
@@ -221,37 +194,29 @@ function preload_styles(arr) {
 }
 
 // create a function to take the previous matrix and bases on the rules of the game, come up with the next matrix
-function new_mx(mx)
-{
+function new_mx(mx) {
     var new_mx = [];
-    for (y in mx)
-    {
+
+    for (var y in mx) {
         new_mx[y] = [];
-        for (x in mx[y])
-        {
+
+        for (var x in mx[y]) {
             //as you can see, we have a full set
+
             var n = get_neighbors(mx, x, y);
-            if (mx[y][x] == true)
-            {
-                if (n > 1 && n < 4)
-                {
+            if (mx[y][x] == true) {
+                if (n > 1 && n < 4) {
                     // then live
                     new_mx[y].push(true);
-                }
-                else
-                {
+                } else {
                     // then die
                     new_mx[y].push(false);
                 }
-            }
-            else if (mx[y][x] == false)
-            {
-                if (n == 3)
-                {
+
+            } else if (mx[y][x] == false) {
+                if (n == 3) {
                     new_mx[y].push(true);
-                }
-                else
-                {
+                } else {
                     new_mx[y].push(false);
                 }
             }
@@ -366,11 +331,6 @@ function new_table() {
  - wrap
  - number of cells (size)
  - speed
-
-
- '
-
-
 
 
  */
