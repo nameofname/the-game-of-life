@@ -110,11 +110,11 @@ function change_styles(mx) {
 
     for (var y in mx) {
         for (var x in mx[y]) {
-            var cell = $('.row-' + y).find('.col-' + x);
 
+            var cell = $('.row-' + y).find('.col-' + x);
             if (mx[y][x] == true) {
                 cell.addClass('on');
-            } else {
+            } else if (cell.hasClass('on')) {
                 cell.removeClass('on');
             }
         }
