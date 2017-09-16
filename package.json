@@ -1,0 +1,8 @@
+{
+  "name": "the-game-of-life",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:nameofname/the-game-of-life.git",
+  "author": "nameofname <nameofemail@gmail.com>",
+  "license": "MIT"
+}
