@@ -44,22 +44,31 @@ $(document).ready(function() {
             start_game();
         }
         game_started = true;
+        $('#start').css({display: 'none'});
+        $('#pause').css({display: 'block'});
+    });
+
+    $('#pause').click(function() {
+        stop_game();
+        game_started = false;
+        $('#start').css({display: 'block'});
+        $('#pause').css({display: 'none'});
     });
 
     $('#clear').click(function() {
         stop_game();
         $('td').removeClass('on');
         game_started = false;
-    });
-
-    $('#pause').click(function() {
-        stop_game();
-        game_started = false;
+        $('#start').css({display: 'block'});
+        $('#pause').css({display: 'none'});
     });
 
     // Pre-loaded styles on click event
     $('#Pulsar').click(function() { preload_styles(pulsar); });
     $('#Gun').click(function() { preload_styles(gun); });
+    $('#Walker').click(function() { preload_styles(walker); });
+    $('#Line').click(function() { preload_styles(tallLine); });
+    $('#Heart').click(function() { preload_styles(growingHeart); });
 
     // Change the number of cells.
     $('.size_change').click(function() {
@@ -107,7 +116,6 @@ function start_int(mx) {
 
 // create a function to take a matrix and assign styles to the table
 function change_styles(mx) {
-
     for (var y in mx) {
         for (var x in mx[y]) {
 
@@ -123,71 +131,42 @@ function change_styles(mx) {
 
 // insert preloaded array into table
 function preload_styles(arr) {
-    var w = arr[0].length -1;
-    var h = arr.length -1;
-    var tw = $('table#GameTable tr.row-0 td').length;
-    var new_arr = [];
+    const newArr = [];
+    const width = arr[0].length -1;
+    const height = arr.length -1;
+    const tableDimensions = $('table#GameTable tr.row-0 td').length;
+    const leftRightPadding = Math.floor((tableDimensions - width) / 2);
+    const topBottomPadding = Math.floor((tableDimensions - height) / 2);
 
-    function load_up() {
+    if (width > tableDimensions || height > tableDimensions) {
+        alert('The table size you have chosen is a bit too small for this pattern.' +
+            "Change the table size under the 'Configure' drop down.");
+        return;
+    }
 
-        var diffX = tw - w;
-        var diffY = tw - h;
-        var side;
-        var top_side;
-        var incrY = 0;
-
-        if (diffX % 2 != 0) {
-            diffX -= 1;
-        }
-
-        if (diffY % 2 != 0) {
-            diffY -= 1;
-        }
-        side = diffX / 2;
-        top_side = diffY / 2;
-        // then add the top and sides, and add the contents of the array in the middle
-
-        for (var y = 0; y < tw; y++) {
-            new_arr[y] = [];
-            if (top_side < y && y < (top_side + w)) {
-                incrY ++;
+    for (let y = 0; y <= tableDimensions; y++) {
+        const xArr = [];
+        newArr[y] = xArr;
+        for (let x = 0; x <= tableDimensions; x++) {
+            let val;
+            if (y < topBottomPadding || x < leftRightPadding) {
+                val = false;
+            } else if (y > (topBottomPadding + height) || x > (leftRightPadding + width)) {
+                val = false;
+            } else {
+                const currY = y - topBottomPadding;
+                const currX = x - leftRightPadding;
+                console.log(currY, currX)
+                val = Boolean(arr[currY][currX]);
             }
-            var incrX = 0;
-
-            for (var x = 0; x < tw; x++) {
-                // if you are in the top or bottom margins...
-
-                if (y < top_side && y > (top_side + w)) {
-                    new_arr[y][x] = false;
-                //else if (top_side < y > (top_side + w))
-                // else you are in the middle on the y axis
-
-                } else {
-                    // if you are in the x- margin
-
-                    if (side < x && x < (side + w)) {
-                        new_arr[y][x] = arr[incrY][incrX];
-                        incrX ++;
-
-                    } else {
-                        //console.log('icrY: ' + incrY);
-                        new_arr[y][x] = false;
-                    }
-                }
-            }
+            xArr[x] = val;
         }
     }
 
-    // first calculate the width of the table relative to the width of the array,
-    // then the width of one side (minus 1 if the diff is odd)
-    if (tw >= w && tw >= h) {
-        load_up();
-    } else {
-        alert('the table size you have chosen is a bit too small for this pattern');
-    }
-
-    change_styles(new_arr);
+    change_styles(newArr);
 }
+
+
 
 // create a function to take the previous matrix and bases on the rules of the game, come up with the next matrix
 function new_mx(mx) {
@@ -259,7 +238,7 @@ function get_neighbors(mx, _x, _y) {
 
 // create a table the number of cells specified.
 function new_table() {
-    var y = parseInt($('input#cell_num').val()) || 20;
+    var y = parseInt($('input#cell_num').val());
 
     $('table#GameTable').empty();
 

@@ -5,53 +5,47 @@
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/jquery.form.js"></script>
   <script type="text/javascript" src="js/life.js"></script>
-  <script type="text/javascript" src="js/dialogue.js"></script>
+  <!--<script type="text/javascript" src="js/dialogue.js"></script>-->
 </head>
 <body>
 <div id="wrapper">
   <div id="nav_bg">
-    <!--	<div id="nav_l">
-        </div>
-        <div id="nav_m">
-        </div>
-        <div id="nav_r">
-        </div>!-->
   </div>
-  <div class="dialogue" id="dialogue_bg">
-  </div>
-  <div class="dialogue" id="dialogue">
-    <div class="dialogue_close">
-    </div>
-    <div class="dialogue_inner" id="dialogue_login">
-      <p class="dialogue_message"></p>
-      <p>LOG IN: </p>
-      <form method="POST" id="form_login" action="/login">
-        <input type="text" name="email" value="email address" />
-        <input type="password" name="pw" value="password" />
-        <input type="submit" name="submit" value="submit" />
-      </form>
-    </div>
-    <div method="POST" class="dialogue_inner" id="dialogue_new_user">
-      <p class="dialogue_message"></p>
-      <p>NEW USER: </p>
-      <form id="form_new_user" action="/new_user">
-        <input type="text" name="email" value="email address" />
-        <input type="password" name="pass" value="password" />
-        <!--<input type="password" name="confirm_pw" value="confirm password" />!-->
-        <input type="submit" value="submit" />
-      </form>
-    </div>
-    <div class="dialogue_inner" id="dialogue_my_patterns">
-      <table>
-      </table>
-    </div>
-    <div class="dialogue_inner" id="dialogue_save_pattern">
-      <form method="POST" id="form_save_pattern" action="/save_pattern">
-        <input type="text" name="pass" value="name your pattern" />
-        <input type="submit" name="submit" value="submit" />
-      </form>
-    </div>
-  </div>
+  <!--<div class="dialogue" id="dialogue_bg">-->
+  <!--</div>-->
+  <!--<div class="dialogue" id="dialogue">-->
+    <!--<div class="dialogue_close">-->
+    <!--</div>-->
+    <!--<div class="dialogue_inner" id="dialogue_login">-->
+      <!--<p class="dialogue_message"></p>-->
+      <!--<p>LOG IN: </p>-->
+      <!--<form method="POST" id="form_login" action="/login">-->
+        <!--<input type="text" name="email" value="email address" />-->
+        <!--<input type="password" name="pw" value="password" />-->
+        <!--<input type="submit" name="submit" value="submit" />-->
+      <!--</form>-->
+    <!--</div>-->
+    <!--<div method="POST" class="dialogue_inner" id="dialogue_new_user">-->
+      <!--<p class="dialogue_message"></p>-->
+      <!--<p>NEW USER: </p>-->
+      <!--<form id="form_new_user" action="/new_user">-->
+        <!--<input type="text" name="email" value="email address" />-->
+        <!--<input type="password" name="pass" value="password" />-->
+        <!--<input type="password" name="confirm_pw" value="confirm password" />-->
+        <!--<input type="submit" value="submit" />-->
+      <!--</form>-->
+    <!--</div>-->
+    <!--<div class="dialogue_inner" id="dialogue_my_patterns">-->
+      <!--<table>-->
+      <!--</table>-->
+    <!--</div>-->
+    <!--<div class="dialogue_inner" id="dialogue_save_pattern">-->
+      <!--<form method="POST" id="form_save_pattern" action="/save_pattern">-->
+        <!--<input type="text" name="pass" value="name your pattern" />-->
+        <!--<input type="submit" name="submit" value="submit" />-->
+      <!--</form>-->
+    <!--</div>-->
+  <!--</div>-->
   <div id="nav">
     <div id="logo"><img src="images/logo.png" alt="Conway's Game of Life" /></div>
     <!--<ul class="menu">
@@ -66,8 +60,11 @@
     <ul class="menu">
       <li class="menu_li">Patterns
         <ul class="menu_inner">
-          <li id="Pulsar" class="sub_li">Load the Pulsar</li>
-          <li id="Gun" class="sub_li">Load the Gun</li>
+          <li id="Pulsar" class="sub_li">Pulsar</li>
+          <li id="Gun" class="sub_li">Gun</li>
+          <li id="Walker" class="sub_li">Simple Walker</li>
+          <li id="Line" class="sub_li">Tall Line</li>
+          <li id="Heart" class="sub_li">Growing Heart</li>
         </ul>
       </li>
     </ul>
@@ -77,17 +74,17 @@
           <li class="sub_li wrap wrap_on">Wrap Table</li>
           <li class="sub_li wrap">Don't Wrap</li>
           <li class="sub_li">Size (cells)</li>
-          <li class="sub_li"><input id="cell_num" type="text" value="20" /></li>
+          <li class="sub_li"><input id="cell_num" type="text" value="30" /></li>
           <li class="sub_li"><div class="btn size_change">Change Size</div></li>
           <li class="sub_li">Speed (in milliseconds)</li>
-          <li class="sub_li"><input id="speed" type="text" value="600" /></li>
+          <li class="sub_li"><input id="speed" type="text" value="300" /></li>
         </ul>
       </li>
     </ul>
     <ul class="toolbar">
       <li id="start" class="btn">Start</li>
-      <li id="clear" class="btn">Clear</li>
       <li id="pause" class="btn">Pause</li>
+      <li id="clear" class="btn">Clear</li>
     </ul>
   </div>
   <table id="GameTable"></table>

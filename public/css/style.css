@@ -179,7 +179,8 @@ td.on {
 }
 
 #pause {
-  background-image: url(../images/pause.png); 
+  background-image: url(../images/pause.png);
+  display: none;
 }
 
 
